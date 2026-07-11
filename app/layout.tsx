@@ -1,24 +1,10 @@
-import type { Metadata, Viewport } from "next";
+﻿import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import { Footer } from "@/src/components/Footer";
 import { Header } from "@/src/components/Header";
 import { StructuredData } from "@/src/components/StructuredData";
 import { siteConfig } from "@/src/config/site";
+export const metadata: Metadata = { metadataBase: new URL(siteConfig.siteUrl), title: { default: `${siteConfig.companyName} | Software Development & Digital Solutions`, template: `%s | ${siteConfig.companyName}` }, description: siteConfig.companyDescription, applicationName: siteConfig.companyName, alternates: { canonical: "/" }, openGraph: { type: "website", siteName: siteConfig.companyName, title: siteConfig.tagline, description: siteConfig.companyDescription, url: "/", locale: "en_IN", images: [{ url: "/og.png", width: 1200, height: 630, alt: "Appnitive Technologies — Digital products that move businesses forward" }] }, twitter: { card: "summary_large_image", title: siteConfig.tagline, description: siteConfig.companyDescription, images: ["/og.png"] }, robots: { index: true, follow: true }, manifest: "/manifest.webmanifest" };
+export const viewport: Viewport = { width: "device-width", initialScale: 1, colorScheme: "dark light", themeColor: [{ media: "(prefers-color-scheme: dark)", color: "#05070c" }, { media: "(prefers-color-scheme: light)", color: "#f4f7fb" }] };
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { const schemas = [{ "@context": "https://schema.org", "@type": "Organization", name: siteConfig.companyName, url: siteConfig.siteUrl, email: siteConfig.businessEmail, description: siteConfig.companyDescription }, { "@context": "https://schema.org", "@type": "ProfessionalService", name: siteConfig.companyName, url: siteConfig.siteUrl, areaServed: "Worldwide", address: { "@type": "PostalAddress", addressCountry: "IN" }, description: siteConfig.companyDescription }]; return <html lang="en" data-theme="dark" suppressHydrationWarning><body><a className="skip-link" href="#main-content">Skip to main content</a><Header /><main id="main-content">{children}</main><Footer /><StructuredData data={schemas} /></body></html>; }
 
-export const metadata: Metadata = {
-  metadataBase: new URL(siteConfig.siteUrl),
-  title: { default: `${siteConfig.companyName} — Thoughtful Android apps`, template: `%s | ${siteConfig.companyName}` },
-  description: siteConfig.description,
-  applicationName: siteConfig.companyName,
-  alternates: { canonical: "/" },
-  openGraph: { type: "website", siteName: siteConfig.companyName, title: `${siteConfig.companyName} — Thoughtful Android apps`, description: siteConfig.description, url: "/", locale: "en_IN" },
-  twitter: { card: "summary_large_image", title: `${siteConfig.companyName} — Thoughtful Android apps`, description: siteConfig.description },
-  icons: { icon: "/icon-192.png", shortcut: "/icon-192.png", apple: "/icon-192.png" },
-  manifest: "/manifest.webmanifest",
-};
-
-export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: [{ media: "(prefers-color-scheme: light)", color: "#f8fafc" }, { media: "(prefers-color-scheme: dark)", color: "#080d19" }] };
-
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="en" suppressHydrationWarning><body><a className="skip-link" href="#main-content">Skip to main content</a><Header /><main id="main-content">{children}</main><Footer /><StructuredData data={{ "@context": "https://schema.org", "@type": "Organization", name: siteConfig.companyName, url: siteConfig.siteUrl, email: siteConfig.businessEmail, address: { "@type": "PostalAddress", addressCountry: "IN" }, description: siteConfig.description }} /></body></html>;
-}

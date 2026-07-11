@@ -1,0 +1,12 @@
+﻿import type { LucideIcon } from "lucide-react";
+import { Bot, ChartNoAxesCombined, CodeXml, Palette, Search, Smartphone } from "lucide-react";
+
+export type Service = { id: string; title: string; shortTitle: string; description: string; offerings: string[]; icon: LucideIcon; accent: string };
+export const services: Service[] = [
+  { id: "mobile", title: "Mobile App Development", shortTitle: "Mobile apps", description: "Native and cross-platform mobile experiences built for performance, usability, and long-term maintainability.", offerings: ["Android apps", "iOS apps", "Cross-platform apps", "App modernization", "Store deployment", "Maintenance"], icon: Smartphone, accent: "cyan" },
+  { id: "websites", title: "Website Development", shortTitle: "Websites", description: "Fast, responsive, search-friendly websites designed to establish trust and generate business.", offerings: ["Business websites", "Corporate websites", "Landing pages", "Portfolio websites", "Content platforms", "E-commerce websites"], icon: CodeXml, accent: "blue" },
+  { id: "saas", title: "Web and SaaS Development", shortTitle: "Web & SaaS", description: "Scalable browser-based platforms for customers, internal teams, and growing digital products.", offerings: ["SaaS platforms", "Admin dashboards", "Customer portals", "Internal tools", "Marketplaces", "Workflow systems"], icon: ChartNoAxesCombined, accent: "violet" },
+  { id: "ai", title: "AI and Automation", shortTitle: "AI & automation", description: "Practical AI features and automations integrated into software products and business workflows.", offerings: ["AI assistants", "Document processing", "Content tools", "Workflow automation", "Recommendation features", "API-based AI integration"], icon: Bot, accent: "indigo" },
+  { id: "design", title: "UI/UX and Product Design", shortTitle: "Product design", description: "Clear, intuitive digital experiences built around users and business goals.", offerings: ["Product strategy", "User flows", "Wireframes", "Interface design", "Prototypes", "Design systems"], icon: Palette, accent: "pink" },
+  { id: "growth", title: "SEO and Digital Growth", shortTitle: "Digital growth", description: "Technical and content-focused improvements that help businesses become easier to discover.", offerings: ["Technical SEO", "On-page SEO", "Website performance", "Content structure", "Local SEO", "Conversion optimization"], icon: Search, accent: "green" },
+];

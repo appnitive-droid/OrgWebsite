@@ -1,0 +1,6 @@
+﻿import { Check, MapPin } from "lucide-react";
+import { siteConfig } from "@/src/config/site";
+import { SectionHeading } from "@/src/components/ui/Primitives";
+const principles = ["Build with purpose", "Keep experiences clear", "Choose technology responsibly", "Communicate honestly", "Design for real users", "Improve continuously"];
+const disciplines = ["Product thinking", "User-centred design", "Modern engineering", "Practical AI adoption", "Business-focused digital growth"];
+export function AboutSection() { return <section className="section about-section" id="about"><div className="container about-layout"><div><SectionHeading eyebrow="About Appnitive" title="A product-minded technology partner" /><p className="about-lede">{siteConfig.companyName} is a software development company based in {siteConfig.location}, building mobile apps, websites, web platforms, AI-powered tools, and digital products.</p><div className="about-disciplines">{disciplines.map(item => <span key={item}><Check size={15} />{item}</span>)}</div></div><div className="principles-board"><div className="board-label"><MapPin size={16} /><span>INDIA · WORKING WITH BUSINESSES EVERYWHERE</span></div><h3>Principles that shape the work</h3>{principles.map((item, i) => <div key={item}><span>0{i + 1}</span><p>{item}</p></div>)}</div></div></section>; }

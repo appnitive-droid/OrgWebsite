@@ -1,129 +1,123 @@
-# COMPANY_NAME Android studio website
+﻿# Appnitive Technologies — Phase 1
 
-A production-oriented public website for an independent Android app studio. It provides the company landing page, typed app portfolio, support and privacy information, data-deletion instructions, legal starter templates, accessibility information, and contact routes suitable for a Google Play organization profile.
-
-> Before publishing: replace every placeholder, verify every app against its production build, and obtain appropriate legal review.
+A production-focused homepage and front-end foundation for Appnitive Technologies, a full-service software development and digital solutions company. Phase 1 deliberately contains one complete route: the homepage. Future destinations remain safe homepage anchors until their content is ready.
 
 ## Technology
 
-- Next.js App Router, React, TypeScript, Tailwind CSS, and Lucide icons
-- Static generation for app and privacy routes
-- Vinext/Vite compatibility build for Cloudflare Sites
-- No database, authentication, analytics, tracking, cookies, or paid services
+- Next.js App Router, React, and strict TypeScript
+- Tailwind CSS v4 with a project-specific token and component layer
+- Framer Motion for purposeful interaction and reduced-motion aware reveals
+- Lucide icons
+- Static generation, metadata API, sitemap, robots, and structured data
+- Vinext/Vite support for Cloudflare-compatible builds
 
-## Setup and commands
-
-Use Node.js 22.13 or newer.
+## Local setup
 
 ```bash
 npm install
-npm run dev          # local development
-npm run typecheck    # TypeScript validation
-npm run lint         # ESLint
-npm run build        # Cloudflare/Vinext production build
-npm run build:next   # standard Next.js static export to out/
-npm run check        # typecheck, lint, and production build
+npm run dev
 ```
 
-`next.config.ts` enables static export, trailing slashes, and portable images. For Cloudflare Pages, use `npm run build:next` with output directory `out` and Node 22+. For Vercel, import the repository as a Next.js project. No runtime environment variables are required by default.
+Open the local URL printed by the development server.
 
-## Central configuration
+## Validation and production
 
-Edit `src/config/site.ts` to change the company/developer name, support/privacy/business/accessibility emails, location, canonical domain, optional response text, legal dates, governing-law placeholder, and future analytics state.
+```bash
+npm run typecheck
+npm run lint
+npm run build
+```
 
-Search for `COMPANY_NAME`, `example.com`, and square-bracket placeholders before release. Do not publish with temporary contact details.
+`npm run build:next` creates the standard Next.js static export. `npm run build` creates the Cloudflare-compatible Vinext output used by the included hosting setup.
 
-## Apps
-
-All portfolio content lives in `src/data/apps.ts` and is typed by `src/types/app.ts`. Add one unique `AppDefinition` for a new app. Configure its filters, status, features, technology, permissions, data-practice table, policy path, support anchor, `featured`, and `sortOrder`. Leave `playStoreUrl` and `packageName` absent until confirmed; missing store URLs render “Coming soon.”
-
-Future assets follow this convention:
+## Project structure
 
 ```text
-public/apps/[slug]/
-  icon.png
-  hero.webp
-  screenshot-1.webp
-  screenshot-2.webp
-  screenshot-3.webp
+app/
+  layout.tsx             Global metadata, schema, header, and footer
+  page.tsx               Homepage section composition
+  globals.css            Tokens, themes, layouts, visuals, and responsive rules
+src/
+  components/
+    sections/            Reusable homepage sections
+    ui/                  Shared visual primitives and motion wrappers
+  config/site.ts         Company details, feature flags, links, and theme default
+  data/                   Services, projects, process, technology, reviews, insights
+  lib/contact.ts         Contact delivery abstraction
+public/
+  brand/ projects/ products/ insights/ patterns/
 ```
 
-The website renders original gradient placeholders when assets are absent. When wiring real assets into `ScreenshotGallery.tsx`, add explicit dimensions, optimized formats, and truthful alt text. Only publish artwork and screenshots you own or are licensed to distribute.
+## Editing company information
 
-## Privacy and legal content
+Update `src/config/site.ts`. Every unknown email, URL, phone number, and social profile is explicitly marked as a placeholder. Do not repeat company details inside components.
 
-General notices are in `src/data/legal.ts`; app-specific statements are in `src/data/apps.ts`; the reusable template is `app/privacy/[appSlug]/page.tsx`.
+Navigation and footer groups live in `src/data/navigation.ts`. Homepage section order is controlled in `app/page.tsx`.
 
-For every released app:
+## Services and projects
 
-1. Inspect the production Android manifest.
-2. Verify permissions, SDKs, APIs, network hosts, analytics, crash reporting, advertising, purchases, and storage behaviour.
-3. Update `permissions`, `dataPractices`, `thirdPartyServices`, AI disclosures, and retention text.
-4. Update legal dates in `src/config/site.ts`.
-5. Compare the policy with the Play Console Data safety declaration.
-6. Remove descriptions of planned features that are not released.
-7. Obtain owner/legal review.
+- Add or edit services in `src/data/services.ts`.
+- Add project records in `src/data/projects.ts` using the typed `Project` model.
+- Homepage projects are intentionally limited to six. The `futureProjects` list prepares later expansion.
+- To add real screenshots, place optimized WebP/AVIF files in `public/projects/<project-slug>/`, add an optional image field to the model, and render it through `next/image` with the existing CSS mockup as the fallback.
 
-Mandatory safeguards:
+## Verified testimonials
 
-- Privacy policies must match actual app behaviour.
-- Play Console Data safety declarations must match the app and privacy policy.
-- SDK data practices must be verified from current SDK documentation.
-- Permissions must be reviewed from each production manifest.
-- Legal language should be reviewed before publishing.
-- Placeholder contact information must be replaced.
-- Effective dates must be updated.
-- Policies should not mention features that are not released.
+1. Add only supplied, verifiable reviews to `src/data/testimonials.ts`.
+2. Set `verified: true` on reviewed records.
+3. Change `SHOW_TESTIMONIALS` to `true` in `src/config/site.ts`.
 
-## Forms, analytics, cookies, and secrets
+If the flag is off or no verified records exist, the homepage automatically shows “What clients can expect.” It never creates fake reviews or ratings.
 
-The contact and deletion forms validate in the browser and prepare a `mailto:` message. They do not send or store data on this website. A future hosted form must add server-side validation, rate limiting, abuse protection, accessible confirmation, and an updated privacy notice.
+## Future insights / MDX blog
 
-No analytics or non-essential cookies are loaded, so no cookie banner is shown. If analytics is enabled later, update the privacy/cookie disclosures, add consent where required, and never load it before required consent.
+Sample concepts live in `src/data/insights.ts` with `sample: true` and `published: false`. They are visible only in development because `SHOW_SAMPLE_INSIGHTS` is false in production. Phase 2 can add an `content/insights/` MDX collection, generate typed frontmatter, and replace the sample array with published content. Until then, production shows the designed “Insights coming soon” state.
 
-Never put API keys or provider secrets in this repository, `site.ts`, public files, or a `NEXT_PUBLIC_` variable. Store secrets with the hosting provider and use a reviewed backend proxy.
+## Connecting the contact form
 
-## Verification
+`src/lib/contact.ts` is the only delivery adapter. Replace `submitContactForm` with one of:
 
-Run `npm run build:next`, use a link checker against `out/`, and manually verify:
+- a Cloudflare Worker endpoint;
+- a Next.js/Netlify function using Resend;
+- Formspree;
+- a custom API.
 
-- header, mobile menu, footer, skip link, theme persistence, and reduced motion
-- app search, category/status filters, and empty state
-- every `/apps/[slug]/` and `/privacy/[appSlug]/` route
-- support anchors, mailto forms, direct email fallbacks, robots, sitemap, manifest, favicon, and 404
-- keyboard navigation, focus, 200% zoom, contrast, and screen-reader names
+Keep validation in `ContactSection.tsx`, add server-side validation and abuse protection to the endpoint, then return a real `ContactResult`. The current adapter clearly reports that online delivery is not configured and offers a mailto fallback; it never claims submission succeeded.
 
-## Google Play checklist
+## Deployment
 
-- [ ] Legal organization name matches Play Console records.
-- [ ] Domain and support emails are owner-controlled.
-- [ ] The site and every policy load without sign-in.
-- [ ] Each published app has a direct policy URL.
-- [ ] Data-deletion instructions match account/server behaviour.
-- [ ] Store listing, Data safety form, policy, permissions, and SDK behaviour agree.
-- [ ] No unverified URL, package name, feature, affiliation, or privacy claim remains.
-- [ ] Contact routes are monitored.
+### Vercel
 
-## Pre-launch checklist
+Import the repository, use the Next.js preset, and deploy with the default build command. Replace `siteUrl` before launch.
 
-- [ ] Replace company, emails, canonical domain, legal dates, and governing law.
-- [ ] Add confirmed Play Store URLs, package names, icons, and screenshots.
-- [ ] Review status labels, planned capabilities, and providers.
-- [ ] Run type checking, linting, both builds, link checks, and responsive/accessibility testing.
-- [ ] Confirm no secrets or private personal details are committed.
-- [ ] Obtain legal review.
+### Cloudflare Pages / Workers
 
-## Structure
+Use the included Vinext/Vite build with `npm run build`. Configure the output expected by the chosen Cloudflare adapter or deploy with the included Sites hosting metadata when present.
 
-```text
-app/                    Routes, metadata, sitemap, manifest, and layouts
-src/components/         Reusable UI, cards, filters, forms, and legal layout
-src/config/site.ts      Central company, email, domain, and legal values
-src/data/apps.ts        Portfolio and app-specific privacy data
-src/data/faqs.ts        Support questions
-src/data/legal.ts       Legal notices and privacy principles
-src/data/navigation.ts  Header and footer navigation
-src/types/app.ts        AppDefinition and privacy-table types
-public/apps/            Future app asset convention
-public/_headers         Recommended security and cache headers
-```
+### Netlify
+
+Import the repository, select the Next.js runtime, and use `npm run build:next`. No backend is required for Phase 1.
+
+## Placeholders to replace
+
+- Production domain / `siteUrl`
+- Business, support, and privacy emails
+- Phone and WhatsApp URL
+- Booking URL
+- Social profile URLs
+- Brand icon/favicon and final logo assets
+- Real project screenshots
+- Contact delivery endpoint
+- Verified testimonials and published insights when supplied
+
+## Recommended Phase 2 order
+
+1. Contact delivery endpoint and production company details
+2. Service detail pages
+3. Case studies and product detail pages
+4. MDX insights index and article pages
+5. About page and FAQs
+6. Support centre and app-specific privacy policies
+7. Legal, data deletion, accessibility, and careers pages
+
+The shared tokens, section primitives, typed data models, metadata foundation, navigation, footer, and CSS mockup patterns are intentionally reusable for those pages.

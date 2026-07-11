@@ -1,36 +1,6 @@
-import Link from "next/link";
-import { Mail, MapPin } from "lucide-react";
+﻿import { ArrowUpRight } from "lucide-react";
 import { siteConfig } from "@/src/config/site";
-import { footerNavigation, primaryNavigation } from "@/src/data/navigation";
 import { Logo } from "./Logo";
-
 export function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="container footer-grid">
-        <div className="footer-intro">
-          <Logo />
-          <p>{siteConfig.description}</p>
-          <p className="footer-meta"><MapPin size={16} /> Independent Android software studio based in {siteConfig.location}</p>
-        </div>
-        <div>
-          <h2>Company</h2>
-          <ul>{primaryNavigation.slice(1, 4).map((item) => <li key={item.href}><Link href={item.href}>{item.label}</Link></li>)}</ul>
-        </div>
-        <div>
-          <h2>Resources</h2>
-          <ul>{footerNavigation.map((item) => <li key={item.href}><Link href={item.href}>{item.label}</Link></li>)}</ul>
-        </div>
-        <div>
-          <h2>Contact</h2>
-          <a className="footer-meta" href={`mailto:${siteConfig.businessEmail}`}><Mail size={16} />{siteConfig.businessEmail}</a>
-          <p className="small-copy">For app support, privacy questions, business enquiries, and security reports.</p>
-        </div>
-      </div>
-      <div className="container footer-bottom">
-        <span>© {new Date().getFullYear()} {siteConfig.companyName}. All rights reserved.</span>
-        <span>Made with care in India.</span>
-      </div>
-    </footer>
-  );
+  return <footer className="site-footer"><div className="container footer-top"><div className="footer-brand"><Logo /><p>{siteConfig.companyDescription}</p><a href={`mailto:${siteConfig.businessEmail}`}>{siteConfig.businessEmail}</a><span>{siteConfig.location}</span></div><div className="footer-links">{siteConfig.footerNavigation.map(group => <div key={group.title}><h3>{group.title}</h3>{group.links.map(link => <a key={link.label} href={link.href}>{link.label}</a>)}</div>)}</div></div><div className="container footer-bottom"><p>© {new Date().getFullYear()} {siteConfig.companyName}. Made in India.</p><div><a href="#contact">Privacy <span className="sr-only">policy future page</span></a><a href="#contact">Terms <span className="sr-only">future page</span></a><a href="#contact">Cookies <span className="sr-only">policy future page</span></a><a href="#contact">Accessibility <span className="sr-only">future page</span></a><a href="#home" aria-label="Back to top"><ArrowUpRight size={16} /></a></div></div></footer>;
 }

@@ -1,0 +1,10 @@
+﻿"use client";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
+import { ArrowUpRight, Check } from "lucide-react";
+import { useState } from "react";
+import { services } from "@/src/data/services";
+import { SectionHeading } from "@/src/components/ui/Primitives";
+export function ServicesSection() {
+  const [active, setActive] = useState(0); const service = services[active]; const Icon = service.icon; const reduced = useReducedMotion();
+  return <section className="section services-section" id="services"><div className="container"><SectionHeading eyebrow="Capabilities" title="From idea to launch—and beyond" description="We combine strategy, design, engineering and growth services to build products that solve real business problems." /><div className="services-editorial"><div className="service-index" role="tablist" aria-label="Services">{services.map((item, index) => <button role="tab" aria-selected={active === index} aria-controls="service-panel" id={`service-tab-${index}`} key={item.id} onClick={() => setActive(index)}><span>0{index + 1}</span><item.icon size={19} /><strong>{item.shortTitle}</strong><ArrowUpRight size={17} /></button>)}</div><div className="service-stage" id="service-panel" role="tabpanel" aria-labelledby={`service-tab-${active}`}><AnimatePresence mode="wait"><motion.div key={service.id} initial={reduced ? false : { opacity: 0, y: 14 }} animate={{ opacity: 1, y: 0 }} exit={reduced ? {} : { opacity: 0, y: -10 }} transition={{ duration: .3 }}><div className={`service-orb accent-${service.accent}`} aria-hidden="true"><Icon /></div><span className="service-kicker">0{active + 1} / 06</span><h3>{service.title}</h3><p>{service.description}</p><ul>{service.offerings.map(item => <li key={item}><Check size={15} />{item}</li>)}</ul><a href="#contact" className="arrow-link" aria-label={`Discuss ${service.title}`}>Explore service <span>↗</span></a></motion.div></AnimatePresence><div className="service-blueprint" aria-hidden="true"><i /><i /><i /></div></div></div></div></section>;
+}

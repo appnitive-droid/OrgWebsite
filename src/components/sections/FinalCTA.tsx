@@ -1,0 +1,3 @@
+﻿import { ArrowRight, Mail } from "lucide-react";
+import { siteConfig } from "@/src/config/site";
+export function FinalCTA() { return <section className="final-cta"><div className="container final-cta-inner"><div className="cta-orbit" aria-hidden="true"><i /><i /><i /></div><span>YOUR NEXT PRODUCT / BUILT WITH INTENTION</span><h2>Ready to turn your idea into a <em>digital product?</em></h2><div><a href="#contact" className="button">Request a Quote <ArrowRight size={18} /></a><a href={`mailto:${siteConfig.businessEmail}`} className="button button-ghost">Contact Appnitive <Mail size={17} /></a></div></div></section>; }
