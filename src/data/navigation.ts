@@ -1,4 +1,4 @@
-﻿export type NavigationItem = { label: string; href: string };
+export type NavigationItem = { label: string; href: string };
 export type FooterGroup = { title: string; links: NavigationItem[] };
 
 export const primaryNavigation: NavigationItem[] = [
@@ -9,8 +9,8 @@ export const primaryNavigation: NavigationItem[] = [
 ];
 
 export const footerNavigation: FooterGroup[] = [
-  { title: "Company", links: [{ label: "About", href: "#about" }, { label: "Process", href: "#process" }, { label: "Work", href: "#work" }, { label: "Careers · future page", href: "#contact" }, { label: "Contact", href: "#contact" }] },
+  { title: "Company", links: [{ label: "About", href: "#about" }, { label: "Process", href: "#process" }, { label: "Work", href: "#work" }, { label: "Contact", href: "#contact" }] },
   { title: "Services", links: [{ label: "Mobile apps", href: "#services" }, { label: "Websites", href: "#services" }, { label: "Web applications", href: "#services" }, { label: "AI integration", href: "#services" }, { label: "UI/UX", href: "#services" }, { label: "SEO", href: "#services" }] },
-  { title: "Products", links: [{ label: "Released apps", href: "#work" }, { label: "Products in development", href: "#products" }, { label: "Support · future page", href: "#contact" }, { label: "Privacy policies · future page", href: "#contact" }] },
-  { title: "Resources", links: [{ label: "Insights", href: "#insights" }, { label: "Technology news", href: "#insights" }, { label: "FAQs · future page", href: "#contact" }, { label: "Terms · future page", href: "#contact" }, { label: "Data deletion · future page", href: "#contact" }] },
+  { title: "Products", links: [{ label: "Released apps", href: "#work" }, { label: "Products in development", href: "#products" }] },
+  { title: "Resources", links: [{ label: "Insights", href: "#insights" }, { label: "Technology approach", href: "#insights" }] },
 ];

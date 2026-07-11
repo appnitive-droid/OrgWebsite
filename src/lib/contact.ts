@@ -1,8 +1,18 @@
-﻿export type ContactPayload = { fullName: string; email: string; company: string; service: string; summary: string; budget: string; timeline: string; contactPath: "project" | "general" };
-export type ContactResult = { ok: boolean; configured: boolean; message: string };
-export async function submitContactForm(payload: ContactPayload): Promise<ContactResult> {
-  void payload;
-  // Phase 2: replace this adapter with a Cloudflare Worker, Resend, Formspree, or custom API call.
-  await new Promise(resolve => window.setTimeout(resolve, 700));
-  return { ok: false, configured: false, message: "Online delivery is not configured yet. Please use the email option below to send your enquiry." };
+export type ContactPayload = { fullName: string; email: string; company: string; service: string; summary: string; budget: string; timeline: string; contactPath: "project" | "general" };
+
+export function createContactMailto(recipient: string, payload: ContactPayload): string {
+  const enquiryType = payload.contactPath === "project" ? "Project enquiry" : "General enquiry";
+  const subject = `${enquiryType}: ${payload.service}`;
+  const body = [
+    `Name: ${payload.fullName}`,
+    `Email: ${payload.email}`,
+    `Company: ${payload.company || "Not provided"}`,
+    `Service: ${payload.service}`,
+    `Budget: ${payload.budget || "Not specified"}`,
+    `Timeline: ${payload.timeline || "Not specified"}`,
+    "",
+    "Project summary:",
+    payload.summary,
+  ].join("\n");
+  return `mailto:${recipient}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 }

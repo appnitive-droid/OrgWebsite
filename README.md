@@ -1,4 +1,4 @@
-﻿# Appnitive Technologies — Phase 1
+# Appnitive Technologies — Phase 1
 
 A production-focused homepage and front-end foundation for Appnitive Technologies, a full-service software development and digital solutions company. Phase 1 deliberately contains one complete route: the homepage. Future destinations remain safe homepage anchors until their content is ready.
 
@@ -50,7 +50,7 @@ public/
 
 ## Editing company information
 
-Update `src/config/site.ts`. Every unknown email, URL, phone number, and social profile is explicitly marked as a placeholder. Do not repeat company details inside components.
+Update `src/config/site.ts`. The production domain and shared business email are configured there; unavailable optional contact channels use `null` or empty collections. Do not repeat company details inside components.
 
 Navigation and footer groups live in `src/data/navigation.ts`. Homepage section order is controlled in `app/page.tsx`.
 
@@ -69,26 +69,19 @@ Navigation and footer groups live in `src/data/navigation.ts`. Homepage section 
 
 If the flag is off or no verified records exist, the homepage automatically shows “What clients can expect.” It never creates fake reviews or ratings.
 
-## Future insights / MDX blog
+## Extending insights
 
-Sample concepts live in `src/data/insights.ts` with `sample: true` and `published: false`. They are visible only in development because `SHOW_SAMPLE_INSIGHTS` is false in production. Phase 2 can add an `content/insights/` MDX collection, generate typed frontmatter, and replace the sample array with published content. Until then, production shows the designed “Insights coming soon” state.
+Homepage mini-insights and technology exploration areas live in `src/data/insights.ts`. Each mini-insight is self-contained and uses the typed `Insight` model. A full blog can later add a `content/insights/` MDX collection and separate article routes without changing the current homepage presentation.
 
-## Connecting the contact form
+## Connecting server-side form delivery
 
-`src/lib/contact.ts` is the only delivery adapter. Replace `submitContactForm` with one of:
-
-- a Cloudflare Worker endpoint;
-- a Next.js/Netlify function using Resend;
-- Formspree;
-- a custom API.
-
-Keep validation in `ContactSection.tsx`, add server-side validation and abuse protection to the endpoint, then return a real `ContactResult`. The current adapter clearly reports that online delivery is not configured and offers a mailto fallback; it never claims submission succeeded.
+`src/lib/contact.ts` currently creates a validated, prefilled email handoff. To add direct delivery, replace that handoff with a Cloudflare Worker, a Next.js/Netlify function using Resend, Formspree, or a custom API. Keep the client validation in `ContactSection.tsx` and add server-side validation plus abuse protection to the endpoint.
 
 ## Deployment
 
 ### Vercel
 
-Import the repository, use the Next.js preset, and deploy with the default build command. Replace `siteUrl` before launch.
+Import the repository, use the Next.js preset, and deploy with the default build command.
 
 ### Cloudflare Pages / Workers
 
@@ -98,17 +91,14 @@ Use the included Vinext/Vite build with `npm run build`. Configure the output ex
 
 Import the repository, select the Next.js runtime, and use `npm run build:next`. No backend is required for Phase 1.
 
-## Placeholders to replace
+## Optional additions
 
-- Production domain / `siteUrl`
-- Business, support, and privacy emails
-- Phone and WhatsApp URL
-- Booking URL
-- Social profile URLs
-- Brand icon/favicon and final logo assets
+- Final brand icon and logo assets
 - Real project screenshots
-- Contact delivery endpoint
-- Verified testimonials and published insights when supplied
+- Direct contact delivery endpoint
+- Separate phone, WhatsApp, booking, and social channels when available
+- Verified testimonials when supplied
+- Full MDX articles when editorial publishing begins
 
 ## Recommended Phase 2 order
 
