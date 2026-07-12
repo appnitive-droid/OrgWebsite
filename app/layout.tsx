@@ -5,7 +5,7 @@ import "./globals.css";
 import { Footer } from "@/src/components/Footer";
 import { Header } from "@/src/components/Header";
 import { StructuredData } from "@/src/components/StructuredData";
-import { siteConfig } from "@/src/config/site";
+import { siteConfig } from "@/src/config/site" ;
 
 
 

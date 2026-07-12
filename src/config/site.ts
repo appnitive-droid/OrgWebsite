@@ -1,6 +1,6 @@
 import { footerNavigation, primaryNavigation } from "@/src/data/navigation";
 
-export const SHOW_TESTIMONIALS = false;
+export const SHOW_TESTIMONIALS = true;
 
 export const siteConfig = {
   companyName: "Appnitive Technologies",
