@@ -1,0 +1,50 @@
+.privacy-center,.privacy-page{background:var(--bg)}
+.privacy-center-hero,.privacy-hero{position:relative;overflow:hidden;padding:170px 0 92px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 78% 12%,rgba(123,97,255,.19),transparent 34%),linear-gradient(180deg,var(--bg-soft),var(--bg))}
+.privacy-center-hero:before,.privacy-hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:84px 84px;mask-image:linear-gradient(to bottom,black,transparent 82%);opacity:.2;pointer-events:none}
+.privacy-center-hero .container,.privacy-hero-inner{position:relative;z-index:1}
+.privacy-center-hero h1,.privacy-hero h1{max-width:930px;margin:18px 0 22px;font-size:clamp(3.25rem,6vw,6.35rem);line-height:.96;letter-spacing:-.052em;text-wrap:balance}
+.privacy-center-hero p,.privacy-hero-inner>p{max-width:720px;margin:0;color:var(--muted);font-size:1.04rem;line-height:1.75}
+.privacy-center-list{padding:96px 0 128px}
+.privacy-center-heading{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:38px}
+.privacy-center-heading h2{margin:0;font-size:clamp(2rem,3.2vw,3.1rem);line-height:1.05;letter-spacing:-.035em}
+.privacy-center-heading p{margin:0;color:var(--muted);font-size:.82rem}
+.privacy-card-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.privacy-card{position:relative;display:flex;min-height:270px;flex-direction:column;padding:30px;border:1px solid var(--line);border-radius:var(--radius);background:linear-gradient(145deg,var(--surface),var(--bg-soft));box-shadow:0 18px 50px rgba(0,0,0,.12)}
+.privacy-card:before{content:"";position:absolute;inset:0 auto 0 0;width:2px;border-radius:var(--radius) 0 0 var(--radius);background:linear-gradient(var(--violet),var(--cyan));opacity:.8}
+.privacy-card>span{color:var(--cyan);font:700 .62rem ui-monospace,Consolas,monospace;letter-spacing:.12em}
+.privacy-card h3{margin:22px 0 10px;font-size:1.55rem;letter-spacing:-.028em}
+.privacy-card p{max-width:520px;margin:0 0 28px;color:var(--muted);font-size:.82rem;line-height:1.7}
+.privacy-card .arrow-link{margin-top:auto;width:max-content}
+.privacy-back-link{display:inline-flex;align-items:center;gap:8px;margin-bottom:38px;color:var(--muted);font-size:.76rem;font-weight:700}
+.privacy-back-link:hover{color:var(--text)}
+.privacy-hero .eyebrow{display:flex;width:max-content}
+.policy-dates{display:flex;gap:48px;margin:38px 0 0}
+.policy-dates>div{padding-left:14px;border-left:1px solid var(--line-bright)}
+.policy-dates dt{color:var(--muted);font-size:.65rem;font-weight:750;letter-spacing:.1em;text-transform:uppercase}
+.policy-dates dd{margin:4px 0 0;font-size:.85rem;font-weight:700}
+.privacy-layout{display:grid;grid-template-columns:250px minmax(0,760px);justify-content:center;gap:86px;padding-top:82px;padding-bottom:130px}
+.policy-toc-shell{position:relative}
+.policy-toc{position:sticky;top:104px;padding:24px;border:1px solid var(--line);border-radius:18px;background:var(--surface)}
+.policy-toc h2{margin:0 0 16px;font-size:.73rem;letter-spacing:.1em;text-transform:uppercase}
+.policy-toc ol{display:grid;gap:2px;margin:0;padding:0;list-style:none;counter-reset:policy-toc}
+.policy-toc li{counter-increment:policy-toc}
+.policy-toc a{display:grid;grid-template-columns:25px 1fr;gap:6px;padding:7px 6px;border-radius:7px;color:var(--muted);font-size:.69rem;line-height:1.35}
+.policy-toc a:before{content:counter(policy-toc,decimal-leading-zero);color:var(--cyan);font:600 .55rem ui-monospace,Consolas,monospace}
+.policy-toc a:hover{background:rgba(123,97,255,.09);color:var(--text)}
+.policy-content{min-width:0}
+.policy-content>section{padding:0 0 66px;margin:0 0 66px;border-bottom:1px solid var(--line);scroll-margin-top:108px}
+.policy-content>section:last-child{padding-bottom:0;margin-bottom:0;border-bottom:0}
+.policy-content h2{margin:0 0 22px;font-size:clamp(1.75rem,3vw,2.55rem);line-height:1.08;letter-spacing:-.035em}
+.policy-content>section>p{margin:0;color:var(--muted);font-size:.94rem;line-height:1.85}
+.policy-detail-grid{display:grid;gap:12px;margin-top:26px}
+.policy-detail-card{padding:23px 24px;border:1px solid var(--line);border-radius:16px;background:var(--surface)}
+.policy-detail-card h3{margin:0 0 8px;font-size:1rem;letter-spacing:-.018em}
+.policy-detail-card p{margin:0;color:var(--muted);font-size:.82rem;line-height:1.72}
+.policy-detail-card .arrow-link{margin-top:17px;width:max-content}
+.policy-list{display:grid;gap:14px;margin:0;padding:0;list-style:none}
+.policy-list li{position:relative;padding-left:25px;color:var(--muted);font-size:.9rem;line-height:1.75}
+.policy-list li:before{content:"";position:absolute;top:.72em;left:2px;width:7px;height:7px;border-radius:50%;background:var(--cyan);box-shadow:0 0 12px rgba(48,216,243,.42)}
+.policy-contact{display:inline-flex;align-items:center;gap:9px;margin-top:20px;padding:13px 17px;border:1px solid var(--line-bright);border-radius:12px;background:var(--surface);font-size:.8rem;font-weight:750}
+.policy-contact:hover{border-color:var(--cyan)}
+@media(max-width:900px){.privacy-center-hero,.privacy-hero{padding:145px 0 78px}.privacy-layout{grid-template-columns:1fr;gap:48px;padding-top:56px}.policy-toc{position:static}.policy-toc ol{grid-template-columns:repeat(2,minmax(0,1fr));gap:3px 12px}.policy-toc a{font-size:.72rem}.privacy-center-list{padding:78px 0 100px}}
+@media(max-width:620px){.privacy-center-hero,.privacy-hero{padding:122px 0 62px}.privacy-center-hero:before,.privacy-hero:before{background-size:48px 48px}.privacy-center-hero h1,.privacy-hero h1{font-size:3.25rem;margin-top:15px}.privacy-center-hero p,.privacy-hero-inner>p{font-size:.9rem}.privacy-center-list{padding:62px 0 82px}.privacy-center-heading{display:block}.privacy-center-heading p{margin-top:10px}.privacy-card-grid{grid-template-columns:1fr}.privacy-card{min-height:245px;padding:25px 23px;border-radius:18px}.privacy-back-link{margin-bottom:28px}.policy-dates{gap:24px;flex-wrap:wrap;margin-top:30px}.privacy-layout{gap:34px;padding-top:38px;padding-bottom:90px}.policy-toc{padding:20px 16px}.policy-toc ol{grid-template-columns:1fr}.policy-content>section{padding-bottom:48px;margin-bottom:48px}.policy-content h2{font-size:1.85rem}.policy-detail-card{padding:20px 18px}.policy-contact{max-width:100%;overflow-wrap:anywhere}}
