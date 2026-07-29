@@ -391,6 +391,198 @@ export const privacyPolicies = [
       "We may update this policy when GeoTag Camera's features, permissions, service providers, or legal obligations change. The revised policy will be posted at this URL with an updated date. Material changes may also be communicated in the app when appropriate.",
     contactEmail: siteConfig.privacyEmail,
   },
+  {
+    slug: "properpdf",
+    appName: "ProperPdf",
+    summary: "How ProperPdf handles documents, images, scans, signatures, recent-file details, and locally processed PDF tools.",
+    developerName: siteConfig.companyName,
+    effectiveDate: "July 29, 2026",
+    lastUpdated: "July 29, 2026",
+    introduction:
+      "This Privacy Policy explains how ProperPdf processes information when you read, scan, create, edit, protect, sign, convert, save, or share PDF documents. The PDF tools described in this policy are designed to process your selected documents on your device. ProperPdf accesses only files, images, folders, or scanner results that you deliberately select through an app or Android system workflow.",
+    dataCollected: [
+      {
+        title: "Documents and images selected by you",
+        description:
+          "The app processes PDFs and images that you choose so it can read documents; merge, split, crop, compress, lock, unlock, or remove pages; convert between PDFs and images; and create other outputs requested by you.",
+      },
+      {
+        title: "Scanned documents",
+        description:
+          "When you start the Scan Document tool, the scanner workflow processes the pages you capture and returns a PDF result for you to review, save, or continue processing.",
+      },
+      {
+        title: "Signatures and document edits",
+        description:
+          "If you use the signing tool, the app processes the signature you draw or enter, its placement, and the selected document so it can create the signed output you request.",
+      },
+      {
+        title: "Recent-file information and preferences",
+        description:
+          "The app stores limited local details such as file name, file location or document URI, tool used, timestamp, file size when available, recent saved outputs, and application preferences so you can reopen recent work and retain your settings.",
+      },
+    ],
+    permissions: [
+      {
+        title: "Files, documents, images, and folders selected by you",
+        description:
+          "ProperPdf uses Android's document and folder pickers to access only the source files and output locations you choose. The app does not require broad access to scan your entire device library for these workflows.",
+      },
+      {
+        title: "Document scanner and camera workflow",
+        description:
+          "When you start document scanning, Google Play services provides the scanner and camera workflow. ProperPdf receives the scan result you approve; the app does not declare its own direct camera permission for this feature.",
+      },
+      {
+        title: "Network access",
+        description:
+          "The app declares internet access to support platform-service availability, including the Google document-scanner service. The PDF editing and conversion operations described in this policy are designed to run on your device.",
+      },
+    ],
+    dataUsage: [
+      "Open and render documents that you deliberately select or send to ProperPdf.",
+      "Create the PDF, image, scan, signature, security, compression, page, or conversion output requested by you.",
+      "Save outputs to the document, folder, or sharing destination you choose.",
+      "Maintain a device-local recent-files list and local copies of saved outputs for convenient reopening.",
+      "Remember application preferences and support reliable operation of the document tools.",
+    ],
+    thirdPartyServices: [
+      {
+        name: "Google ML Kit Document Scanner and Google Play services",
+        purpose:
+          "Provides the document-scanning interface when you deliberately start the Scan Document tool. Google may process technical service information under its own terms and privacy policy.",
+        privacyPolicyUrl: "https://policies.google.com/privacy",
+      },
+    ],
+    dataSharing: [
+      "ProperPdf does not sell your documents, images, signatures, or recent-file information.",
+      "The document tools described in this policy do not automatically upload selected files to an Appnitive server.",
+      "Information needed for document scanning may be processed by the Google service identified above when you use that feature.",
+      "A document or image is shared only when you choose a system sharing, export, save, or open-with destination.",
+      "Information may be disclosed if required by applicable law or a valid legal process.",
+    ],
+    dataRetention: [
+      "Source documents and images remain in their original device or provider locations unless you delete or change them using the relevant device, storage-provider, or file-management controls.",
+      "Generated files remain in the output location you select until you delete them. ProperPdf may also keep device-local copies of recent saved outputs so they can be reopened from the app.",
+      "Clearing the recent-files list removes its local metadata and locally retained output copies, but does not necessarily delete files saved to other locations you selected.",
+      "Clearing app storage or uninstalling the app generally removes app-local data, subject to Android and account backup settings that may retain or restore some information.",
+      "Google may retain service information according to its own policies when the document scanner is used.",
+    ],
+    security: [
+      "ProperPdf relies on Android's scoped document access, application storage, and content-sharing controls and limits file processing to the workflows described in this policy.",
+      "Password protection can help restrict access to a PDF, but users remain responsible for safeguarding passwords, source files, outputs, and sharing destinations.",
+      "No electronic storage or processing method is completely secure, so absolute security cannot be guaranteed.",
+    ],
+    childrenPrivacy:
+      "ProperPdf is not directed to children under 13. If you are a parent or guardian and believe a child has provided information through the app, contact us so we can review the situation and take appropriate action.",
+    userRights: [
+      "Choose which documents, images, scans, folders, and output destinations ProperPdf may access through Android's system workflows.",
+      "Cancel a picker or scanner workflow without providing a document to the app.",
+      "Review, move, share, or delete generated files using the app and available device or storage-provider controls.",
+      "Clear recent-file information and local app data using available app or Android settings.",
+      "Contact us with questions or requests concerning this policy.",
+    ],
+    policyChanges:
+      "We may update this policy when ProperPdf's document tools, permissions, service providers, or legal obligations change. The revised policy will be posted at this URL with an updated date. Material changes may also be communicated in the app when appropriate.",
+    contactEmail: siteConfig.privacyEmail,
+  },
+  {
+    slug: "pictionary",
+    appName: "Pictionary",
+    summary: "How Pictionary handles anonymous sign-in, player names, multiplayer rooms, drawings, guesses, scores, and presence.",
+    developerName: siteConfig.companyName,
+    effectiveDate: "July 29, 2026",
+    lastUpdated: "July 29, 2026",
+    introduction:
+      "This Privacy Policy explains how Pictionary processes information to create and synchronize private multiplayer drawing-and-guessing rooms. The app uses an anonymous account identifier and cloud database services so invited players can see the same room, drawings, guesses, scores, and game status in real time.",
+    dataCollected: [
+      {
+        title: "Anonymous account identifier",
+        description:
+          "The app signs the device in anonymously through Firebase Authentication and receives a unique identifier used to associate the player with rooms and game actions. It does not require an email address or password for this sign-in flow.",
+      },
+      {
+        title: "Player and room information",
+        description:
+          "The app processes the player name you enter or the generated default name, anonymous player and host identifiers, room code, selected game mode, online status, join time, scores, round number, round timing, and other room state needed to run a game.",
+      },
+      {
+        title: "Drawings and game actions",
+        description:
+          "The app processes drawing strokes and points, colors, brush width, clear or undo events, timestamps, and the anonymous identifier of the player creating the event so drawings can be synchronized with the room.",
+      },
+      {
+        title: "Guesses and results",
+        description:
+          "The app processes guess text, player name and identifier, whether a guess was correct, timestamps, scores, and round results so players can participate and see game progress.",
+      },
+    ],
+    permissions: [
+      {
+        title: "Internet access",
+        description:
+          "Required to sign in anonymously, create or join a room, synchronize drawings and guesses, update scores and presence, and receive real-time room changes through Firebase.",
+      },
+      {
+        title: "No camera, microphone, location, or media permission",
+        description:
+          "The current app manifest does not request camera, microphone, location, contacts, or device-media access for the multiplayer drawing gameplay described in this policy.",
+      },
+    ],
+    dataUsage: [
+      "Create an anonymous Firebase session for the device.",
+      "Create a private game room or locate a room using the code entered by a player.",
+      "Synchronize player names, presence, drawings, guesses, scores, prompts, timers, and round state among room participants.",
+      "Determine correct guesses and update game progress and scores.",
+      "Remove or mark room and presence information when players or hosts leave where the app's current cleanup flow applies.",
+      "Maintain the reliability and security of the multiplayer service.",
+    ],
+    thirdPartyServices: [
+      {
+        name: "Google Firebase Authentication",
+        purpose:
+          "Creates and maintains the anonymous account identifier used for multiplayer room participation. Google processes related authentication and technical information under its own terms and privacy policy.",
+        privacyPolicyUrl: "https://policies.google.com/privacy",
+      },
+      {
+        name: "Google Firebase Realtime Database",
+        purpose:
+          "Stores and synchronizes temporary room, player, presence, drawing, guess, score, prompt, and round information so participants can play together in real time.",
+        privacyPolicyUrl: "https://policies.google.com/privacy",
+      },
+    ],
+    dataSharing: [
+      "Player names, drawings, guesses, scores, presence, and game status are shared with other participants in the same room as part of gameplay.",
+      "Firebase processes authentication, technical, and room information as the service provider used to operate multiplayer games.",
+      "Pictionary does not sell player, drawing, guess, or room information.",
+      "Do not enter sensitive personal information as a player name or guess, and share room codes only with people you intend to invite.",
+      "Information may be disclosed if required by applicable law or a valid legal process.",
+    ],
+    dataRetention: [
+      "Drawing events and guesses are cleared when the current game flow starts a new round or otherwise performs room cleanup.",
+      "Room data is intended to be temporary. The app requests room deletion when the host ends or leaves the room, and its current host-disconnection flow is designed to remove the room; actual deletion timing can be affected by connectivity, app termination, database configuration, or provider operations.",
+      "A non-host player's online status is updated when the player leaves or disconnects where the presence flow succeeds.",
+      "Firebase may retain anonymous authentication and database information according to the project's configuration, backups, operational requirements, and Google's applicable policies.",
+      "Clearing app data or uninstalling the app removes device-local app state but may not immediately delete information already synchronized to Firebase.",
+    ],
+    security: [
+      "Pictionary uses anonymous Firebase Authentication and Firebase Realtime Database to operate multiplayer rooms. Access controls and database rules must be maintained to limit unauthorized room access and writes.",
+      "Room codes are intended for invitation and convenience; they should not be treated as a guarantee that a room or its content is confidential.",
+      "No electronic transmission, authentication, or storage method is completely secure, so absolute security cannot be guaranteed.",
+    ],
+    childrenPrivacy:
+      "Pictionary is not directed to children under 13. If you are a parent or guardian and believe a child has provided information through the app, contact us so we can review the situation and take appropriate action.",
+    userRights: [
+      "Choose the player name displayed to other participants and avoid entering personal or sensitive information.",
+      "Choose whether to create a room, join using a room code, submit a guess, or draw during a round.",
+      "Leave a room at any time; hosts can end their room using the available app controls.",
+      "Clear device-local app data through Android settings to reset local state and the locally stored anonymous session.",
+      "Contact us with questions or requests concerning synchronized room information or this policy.",
+    ],
+    policyChanges:
+      "We may update this policy when Pictionary's multiplayer features, data flows, permissions, service providers, or legal obligations change. The revised policy will be posted at this URL with an updated date. Material changes may also be communicated in the app when appropriate.",
+    contactEmail: siteConfig.privacyEmail,
+  },
 ] as const satisfies readonly PrivacyPolicyConfig[];
 
 export function isValidPrivacyPolicy(
