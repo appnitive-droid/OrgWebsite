@@ -105,12 +105,21 @@ export function PrivacyPolicyPage({
 
           <section id="permissions" aria-labelledby="permissions-heading">
             <h2 id="permissions-heading">Permissions and their purposes</h2>
-            <p>
-              You can review or change these permissions in Android settings.
-              Some features will not work when the permission they require is
-              unavailable.
-            </p>
-            <DetailCards items={policy.permissions} />
+            {policy.permissions.length ? (
+              <>
+                <p>
+                  You can review or change these permissions in Android settings.
+                  Some features will not work when the permission they require is
+                  unavailable.
+                </p>
+                <DetailCards items={policy.permissions} />
+              </>
+            ) : (
+              <p>
+                The current version does not request Android runtime permissions
+                or special-access permissions for its core functionality.
+              </p>
+            )}
           </section>
 
           <section id="use" aria-labelledby="use-heading">

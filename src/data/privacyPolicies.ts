@@ -583,6 +583,71 @@ export const privacyPolicies = [
       "We may update this policy when Pictionary's multiplayer features, data flows, permissions, service providers, or legal obligations change. The revised policy will be posted at this URL with an updated date. Material changes may also be communicated in the app when appropriate.",
     contactEmail: siteConfig.privacyEmail,
   },
+  {
+    slug: "crosswords-puzzle-english",
+    appName: "Crosswords Puzzle English",
+    summary:
+      "How Crosswords Puzzle English handles locally stored puzzle progress, answers, hints, play times, points, and daily rewards.",
+    developerName: siteConfig.companyName,
+    effectiveDate: "July 31, 2026",
+    lastUpdated: "July 31, 2026",
+    introduction:
+      "This Privacy Policy explains how Crosswords Puzzle English processes information while you solve its bundled English crossword puzzles. The current version is designed to work locally on your device without an account, advertising, analytics, cloud synchronization, or network-based gameplay. It stores gameplay progress so you can continue puzzles, use hints, earn points, and review completion progress.",
+    dataCollected: [
+      {
+        title: "Puzzle progress and answers",
+        description:
+          "The app stores the puzzle identifier and difficulty, entered letters, revealed cells, selected word or grid position, solved-word count, completion status, and hint count needed to save and restore your progress.",
+      },
+      {
+        title: "Play and completion information",
+        description:
+          "The app stores local timestamps and timing information such as when a puzzle was started or last played, accumulated play time, completion time, best time, and completion date when applicable.",
+      },
+      {
+        title: "Points and daily rewards",
+        description:
+          "The app stores the local points balance through transaction records, including the transaction type, amount, related puzzle or word when applicable, timestamp, and description. It also stores the local calendar date on which the most recent daily reward was claimed.",
+      },
+    ],
+    permissions: [],
+    dataUsage: [
+      "Save entered letters, revealed cells, hints, and selection state so an unfinished puzzle can be continued.",
+      "Calculate completion progress, solved-word counts, elapsed time, completion time, and best time.",
+      "Award and spend locally managed points for puzzle completions, daily rewards, and hints.",
+      "Determine whether the daily reward is currently available using the device's local calendar date.",
+      "Display bundled puzzles, difficulty groups, level progress, and gameplay history on the device.",
+    ],
+    thirdPartyServices: [],
+    dataSharing: [
+      "Crosswords Puzzle English does not sell locally stored gameplay information.",
+      "The current app does not transmit puzzle progress, answers, timing information, points, or daily-reward information to Appnitive Technologies or a third-party service as part of its core functionality.",
+      "Android backup or device-transfer services may process app data according to your device, account, and platform settings. Those platform services are controlled by their providers rather than by the app's core gameplay.",
+      "Information may be disclosed if required by applicable law or a valid legal process and if it is available to us, although the current app does not ordinarily receive the locally stored gameplay records described above.",
+    ],
+    dataRetention: [
+      "Puzzle progress, timing information, points transactions, and daily-reward information remain in the app's local database until they are removed through available app or Android controls, app storage is cleared, or the app is uninstalled.",
+      "Clearing app storage or uninstalling the app generally removes device-local gameplay information, subject to Android backup and device-transfer settings that may retain or later restore some app data.",
+      "Because the current backup configuration must be verified before release, the exact backup and restoration behavior can vary by Android version, device, account, and final production configuration.",
+    ],
+    security: [
+      "Gameplay information is stored in the app's private local database and is not intentionally transmitted by the current app's core functionality.",
+      "Device security, operating-system protections, backup settings, and access to the device can affect the confidentiality of locally stored information.",
+      "No electronic storage method is completely secure, so absolute security cannot be guaranteed.",
+    ],
+    childrenPrivacy:
+      "Crosswords Puzzle English is not directed to children under 13. The current app does not request an account or personal contact details. If you are a parent or guardian and have a privacy concern about a child's use of the app, contact us so we can review the situation and take appropriate action.",
+    userRights: [
+      "Play the bundled puzzles without creating an account or providing personal contact information.",
+      "Choose whether to enter answers, use hints, claim daily rewards, or continue saved puzzles.",
+      "Clear the app's local information using available app or Android storage controls.",
+      "Review and manage Android backup or device-transfer settings through your device or account controls.",
+      "Contact us with questions or requests concerning this policy.",
+    ],
+    policyChanges:
+      "We may update this policy if Crosswords Puzzle English adds permissions, online services, analytics, advertising, cloud features, new data practices, or if legal obligations change. The revised policy will be posted at this URL with an updated date. Material changes may also be communicated in the app when appropriate.",
+    contactEmail: siteConfig.privacyEmail,
+  },
 ] as const satisfies readonly PrivacyPolicyConfig[];
 
 export function isValidPrivacyPolicy(
@@ -594,7 +659,6 @@ export function isValidPrivacyPolicy(
       policy.summary.trim() &&
       policy.introduction.trim() &&
       policy.dataCollected.length &&
-      policy.permissions.length &&
       policy.contactEmail.trim(),
   );
 }
