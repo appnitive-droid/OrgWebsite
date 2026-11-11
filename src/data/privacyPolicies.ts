@@ -648,6 +648,126 @@ export const privacyPolicies = [
       "We may update this policy if Crosswords Puzzle English adds permissions, online services, analytics, advertising, cloud features, new data practices, or if legal obligations change. The revised policy will be posted at this URL with an updated date. Material changes may also be communicated in the app when appropriate.",
     contactEmail: siteConfig.privacyEmail,
   },
+  {
+    slug: "astrosage",
+    appName: "AstroSage",
+    summary:
+      "How AstroSage handles birth details, account sync, AI and voice requests, and credit purchases.",
+    developerName: siteConfig.companyName,
+    effectiveDate: "November 11, 2026",
+    lastUpdated: "November 11, 2026",
+    introduction:
+      "This Privacy Policy explains how Appnitive Technologies handles information in the AstroSage Android app (com.appnitive.astroaiapp). AstroSage calculates Vedic birth charts on your device. You can use local features as a guest. Account sign-in, birthplace search, AI features, and purchases use the online services described below.",
+    dataCollected: [
+      {
+        title: "Birth details and charts",
+        description:
+          "The app uses your date of birth, time of birth if known, birthplace, birthplace coordinates, and time zone to calculate your chart. It can store these details and the calculated chart on your device. For signed-in users, the app can sync birth details to Cloud Firestore, including details entered as a guest when you move them to your account. When you use birthplace search, Google Places receives your search text and the selected place identifier to return suggestions and coordinates. Birthplace coordinates describe the place you select or enter. The app does not request Android device location access.",
+      },
+      {
+        title: "Sign-in and account details",
+        description:
+          "Firebase Authentication processes email and password sign-in or Google sign-in. The account record in Cloud Firestore can include your Firebase user ID, email address, display name and profile photo URL when available, time zone, language, and account timestamps. If you use the guest AI preview, Firebase provides an anonymous user ID to identify the request and track whether the preview has been used.",
+      },
+      {
+        title: "AI questions, readings, and voice",
+        description:
+          "When an AI feature runs, the app sends the content needed for that feature through our Cloudflare Worker to OpenAI. This can include your question, recent messages from the current conversation, relevant chart facts, or summaries and scores for a compatibility reading. Daily horoscope generation can send chart and transit summaries while the app is in the background. If you record a voice question, the recording is sent for transcription. The resulting text can be used to generate an answer, and answer text can be sent to create audio playback.",
+      },
+      {
+        title: "Compatibility, preferences, and saved activity",
+        description:
+          "The app can store a partner's birth details, compatibility results, daily readings, reports, bookmarks, preferences, and app activity such as streaks and feature usage on your device. Compatibility chart summaries and scores are sent to the AI service when you request an AI interpretation. Only enter another person's birth details if you have their permission or authority to do so.",
+      },
+      {
+        title: "Purchases and AI usage limits",
+        description:
+          "Google Play Billing processes one-time credit purchases. AstroSage receives purchase information, including the product and purchase token, to grant credits and prevent duplicate grants. Cloud Firestore stores account credit balances and processed purchase tokens. The Cloudflare Worker verifies a Firebase token and keeps usage counters and guest preview records to enforce limits. The service may also process technical request information such as IP addresses and request logs to operate and troubleshoot the service.",
+      },
+      {
+        title: "Reports, sharing, and support",
+        description:
+          "If you share an exported report or an invitation, Android passes the selected content to the app you choose. A report can contain birth or chart details. If you email us, we receive your email address and the information you include in your message.",
+      },
+    ],
+    permissions: [
+      {
+        title: "Internet and network status",
+        description:
+          "Used for account sign-in and sync, birthplace lookup, AI requests, and Google Play Billing.",
+      },
+      {
+        title: "Microphone",
+        description:
+          "Used when you choose to record a voice question and grant microphone access. You can use text features without granting this permission.",
+      },
+      {
+        title: "Notifications",
+        description:
+          "Used to show a local reminder when a daily horoscope is ready. You can change notification permissions in Android settings.",
+      },
+    ],
+    dataUsage: [
+      "Calculate birth charts and compatibility results, restore saved information, and remember your preferences.",
+      "Sign you in, verify your email, reset your password when requested, and sync birth details to your account.",
+      "Find birthplaces and generate requested AI answers, readings, transcriptions, and spoken responses.",
+      "Process credit purchases, maintain balances, enforce AI usage limits, prevent duplicate credit grants, and troubleshoot the service.",
+      "Respond to support and privacy requests.",
+    ],
+    thirdPartyServices: [
+      {
+        name: "Google Firebase and Google Sign-In",
+        purpose:
+          "Authenticate users and guests, and store account profiles, synced birth details, credits, and processed purchase tokens in Cloud Firestore.",
+        privacyPolicyUrl: "https://firebase.google.com/support/privacy",
+      },
+      {
+        name: "Google Places and Google Play Billing",
+        purpose:
+          "Resolve birthplace search queries and selected places, and process credit purchases through Google Play.",
+        privacyPolicyUrl: "https://policies.google.com/privacy",
+      },
+      {
+        name: "Cloudflare",
+        purpose:
+          "Host the service that verifies Firebase tokens, enforces AI usage limits, and forwards AI and voice requests to OpenAI.",
+        privacyPolicyUrl: "https://www.cloudflare.com/privacypolicy/",
+      },
+      {
+        name: "OpenAI API",
+        purpose:
+          "Process the text, chart information, or voice recordings needed to generate answers, transcribe questions, and create spoken playback.",
+        privacyPolicyUrl: "https://developers.openai.com/api/docs/guides/your-data",
+      },
+    ],
+    dataSharing: [
+      "We use the providers listed above for the features described in this policy. The Cloudflare Worker sends AI request content to OpenAI using the service's credentials. The worker uses the Firebase sign-in token for verification and does not forward that token to OpenAI.",
+      "If you export a report, share an invitation, or email support, the recipient and the app or service you choose receive the information you share.",
+      "Android backup and device transfer may copy eligible app data according to your device and account settings.",
+      "We do not sell personal information. We may disclose information when required by law or to protect the rights, safety, or security of users and the service.",
+    ],
+    dataRetention: [
+      "The app keeps active chat messages in session memory. Recordings and audio playback files may be held temporarily in the app cache. AI providers may retain request data according to their applicable service policies and settings.",
+      "Saved profiles, reports, readings, compatibility records, and preferences can remain on your device until you remove them, clear the app's storage, or uninstall it. Android backups may restore eligible data, and exported or shared copies remain wherever you saved or sent them.",
+      "We keep account and synced profile data while your account is active. Clearing app storage, signing out, or uninstalling does not remove records held online. To request deletion of your account and associated data, email the address below from your account email if possible. We may ask for information to verify the request. Please do not send your password.",
+      "We retain purchase, quota, security, and support records as needed to process transactions, enforce usage limits, prevent abuse, respond to requests, and meet legal obligations. Any records needed for those purposes may be kept after account deletion.",
+    ],
+    security: [
+      "The app uses HTTPS for online requests. Firebase Authentication verifies account access, and Cloud Firestore access rules restrict account records to the authenticated account owner from within the app.",
+      "The Cloudflare Worker verifies Firebase tokens before accepting AI requests. Android app storage protects local data through the operating system's app isolation. Copies you export are subject to the protections of their destination.",
+    ],
+    childrenPrivacy:
+      "If you are a parent or guardian and believe a child has provided personal information without appropriate permission, contact us using the email below so we can review your request.",
+    userRights: [
+      "Use local features as a guest and choose whether to sign in, use online birthplace search, or send an AI question.",
+      "Manage microphone and notification permissions in Android settings. You can also manage Android backup and device-transfer settings.",
+      "Update your birth details in the app or clear device-local data through Android storage settings.",
+      "Email us to ask about, correct, or request deletion of your account and associated data.",
+    ],
+    policyChanges:
+      "We will post changes to this policy on this page and update the date above. We may also provide an in-app notice when a change materially affects how we handle your information.",
+    contactEmail: siteConfig.privacyEmail,
+  },
 ] as const satisfies readonly PrivacyPolicyConfig[];
 
 export function isValidPrivacyPolicy(
