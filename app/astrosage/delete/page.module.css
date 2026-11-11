@@ -1,0 +1,164 @@
+.page {
+  padding: clamp(112px, 12vw, 164px) 0 clamp(64px, 9vw, 112px);
+  background: radial-gradient(ellipse at 85% 0%, rgba(123, 97, 255, .15), transparent 42%), var(--bg);
+}
+
+.content {
+  max-width: 1080px;
+}
+
+.intro {
+  margin-bottom: clamp(28px, 5vw, 48px);
+}
+
+.app {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 22px;
+}
+
+.app img {
+  flex: none;
+  border-radius: 14px;
+}
+
+.app p {
+  margin: 0;
+  color: var(--muted);
+  font-size: .875rem;
+}
+
+.app .appName {
+  color: var(--text);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.intro h1 {
+  margin: 0 0 16px;
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  line-height: 1.02;
+  letter-spacing: -.05em;
+  text-wrap: balance;
+}
+
+.lede {
+  max-width: 64ch;
+  margin: 0;
+  color: var(--muted);
+  font-size: clamp(1rem, 1.6vw, 1.125rem);
+}
+
+.request, .details {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(16px, 2.5vw, 24px);
+}
+
+.request {
+  align-items: stretch;
+  margin-bottom: clamp(16px, 2.5vw, 24px);
+  padding: clamp(20px, 3.5vw, 36px);
+  border: 1px solid var(--line-bright);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.instructions h2, .card h2 {
+  margin: 0 0 14px;
+  font-size: clamp(1.375rem, 2.2vw, 1.75rem);
+  line-height: 1.2;
+  letter-spacing: -.025em;
+}
+
+.instructions ol, .card ul {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding-left: 1.35rem;
+  color: var(--muted);
+}
+
+.instructions ol { list-style: decimal; }
+.card ul { list-style: disc; }
+.instructions li::marker, .card li::marker { color: var(--text); }
+.instructions strong, .card strong { color: var(--text); }
+
+.contact {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  padding: clamp(16px, 3vw, 26px);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface-2);
+}
+
+.contact h3 {
+  margin: 0 0 14px;
+  font-size: 1.125rem;
+}
+
+.contact .cta {
+  max-width: 100%;
+  padding-inline: clamp(12px, 2vw, 22px);
+  background: linear-gradient(135deg, #6246df, #285fcb);
+  text-align: center;
+  line-height: 1.3;
+}
+
+.cta svg, .card h2 svg { flex: none; }
+
+.contact p {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: .875rem;
+}
+
+.contact .email {
+  margin-top: 8px;
+  color: var(--text);
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  user-select: text;
+}
+
+.followUp {
+  display: grid;
+  align-content: start;
+  gap: clamp(16px, 2.5vw, 24px);
+}
+
+.card {
+  padding: clamp(20px, 3vw, 30px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+.card h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.card p {
+  margin: 0;
+  color: var(--muted);
+}
+
+.card ul, .card ul + p, .card p + p { margin-top: 14px; }
+.card p > strong { display: block; }
+
+.privacy {
+  margin-top: 28px;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+@media (max-width: 760px) {
+  .request, .details { grid-template-columns: minmax(0, 1fr); }
+}
